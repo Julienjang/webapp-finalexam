@@ -16,13 +16,13 @@ public class SelectOneMemberServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         /* 전달한 파라미터 꺼내기 */
-        int memberId = Integer.parseInt(request.getParameter("memberId"));
+        int memberCode = Integer.parseInt(request.getParameter("memberCode"));
 
-        System.out.println("memberId : " + memberId);
+        System.out.println("memberCode : " + memberCode);
 
         /* 사번을 이용해 사원 정보를 조회하는 비지니스 로직 호출 */
         MemberService memberService = new MemberService();
-        MemberDTO selectedMember = memberService.selectOneMemberById(memberId);
+        MemberDTO selectedMember = memberService.selectOneMemberById(memberCode);
 
         System.out.println("selectedMember : " + selectedMember);
 
