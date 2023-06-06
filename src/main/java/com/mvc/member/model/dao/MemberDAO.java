@@ -125,6 +125,7 @@ public class MemberDAO {
             pstmt.setString(6, member.getContact());
             pstmt.setString(7, member.getTeamCode());
             pstmt.setString(8, member.getActiveStatus());
+            pstmt.setInt(9, member.getMemberCode());
 
             result = pstmt.executeUpdate();
 
@@ -158,6 +159,7 @@ public class MemberDAO {
             pstmt.setString(6, member.getContact());
             pstmt.setString(7, member.getTeamCode());
             pstmt.setString(8, member.getActiveStatus());
+
 
             result = pstmt.executeUpdate();
 
