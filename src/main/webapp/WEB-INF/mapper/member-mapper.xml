@@ -8,7 +8,7 @@
         SELECT * FROM MEMBER_INFO
     </entry>
     <entry key="insertMember">
-        INSERT INTO Members (MEMBER_NAME, LAUNCH_DATE, DIVISION_CODE, DETAIL_INFO, STUDENT_QUANTITY, CONTACT, TEAM_CODE, ACTIVE_STATUS)
+        INSERT INTO MEMBER_INFO (MEMBER_NAME, LAUNCH_DATE, DIVISION_CODE, DETAIL_INFO, STUDENT_QUANTITY, CONTACT, TEAM_CODE, ACTIVE_STATUS)
         VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)
     </entry>
     <entry key="updateMember">

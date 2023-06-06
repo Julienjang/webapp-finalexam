@@ -16,13 +16,13 @@ public class MemberService {
         memberDAO = new MemberDAO();
     }
 
-    public MemberDTO selectOneMemberById(int memberId) {
+    public MemberDTO selectOneMemberById(int memberCode) {
 
         /* Connection 생성 */
         Connection con = getConnection();
 
         /* Connection과 함께 정보를 전달하여 조회한다. */
-        MemberDTO selectedMember = memberDAO.selectMemberById(con, memberId);
+        MemberDTO selectedMember = memberDAO.selectMemberById(con, memberCode);
 
         /* connection 닫기 */
         close(con);

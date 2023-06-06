@@ -28,7 +28,6 @@ public class UpdateMemberServlet extends HttpServlet {
         String activeStatus = request.getParameter("activeStatus");
 
         MemberDTO member = new MemberDTO();
-        member.setMemberCode(memberCode);
         member.setMemberName(memberName);
         member.setLaunchDate(launchDate);
         member.setDivisionCode(divisionCode);
@@ -42,10 +41,10 @@ public class UpdateMemberServlet extends HttpServlet {
 
         String path = "";
         if(result > 0) {
-            path = "/WEB-INF/views/common/successPage.jsp";
+            path = "/views/common/successPage.jsp";
             request.setAttribute("successCode", "updateMember");
         } else {
-            path = "/WEB-INF/views/common/errorPage.jsp";
+            path = "/views/common/errorPage.jsp";
             request.setAttribute("message", "회원 정보 수정 실패!");
         }
 

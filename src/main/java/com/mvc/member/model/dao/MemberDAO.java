@@ -117,15 +117,14 @@ public class MemberDAO {
 
         try {
             pstmt = con.prepareStatement(query);
-            pstmt.setInt(1, member.getMemberCode());
-            pstmt.setString(2, member.getMemberName());
-            pstmt.setString(3, member.getLaunchDate());
-            pstmt.setString(4, member.getDivisionCode());
-            pstmt.setString(5, member.getDetailInfo());
-            pstmt.setString(6, member.getStudentQuantity());
-            pstmt.setString(7, member.getContact());
-            pstmt.setString(8, member.getTeamCode());
-            pstmt.setString(9, member.getActiveStatus());
+            pstmt.setString(1, member.getMemberName());
+            pstmt.setString(2, member.getLaunchDate());
+            pstmt.setString(3, member.getDivisionCode());
+            pstmt.setString(4, member.getDetailInfo());
+            pstmt.setString(5, member.getStudentQuantity());
+            pstmt.setString(6, member.getContact());
+            pstmt.setString(7, member.getTeamCode());
+            pstmt.setString(8, member.getActiveStatus());
 
             result = pstmt.executeUpdate();
 
@@ -159,7 +158,6 @@ public class MemberDAO {
             pstmt.setString(6, member.getContact());
             pstmt.setString(7, member.getTeamCode());
             pstmt.setString(8, member.getActiveStatus());
-            pstmt.setInt(9, member.getMemberCode());
 
             result = pstmt.executeUpdate();
 

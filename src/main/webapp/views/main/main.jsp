@@ -30,8 +30,16 @@
 
 <h3>MEMBER_INFO 테이블에서 강사 정보 수정 (강사코드와 변경할 정보를 입력 받아 강사코드와 일치하는 강사의 정보 변경 - 원하는 데이터 변경) : /member/update (post)</h3>
 <form action="${ pageContext.servletContext.contextPath }/member/update" method="post">
-    강사코드 : <input type="text" name="memberCode"><br>
-    활동상태 변경 : <input type="text" name="activeStatus"><br>
+    수정할 강사코드를 입력하세요: <input type="text" name="memberCode"><br>
+
+    강사이름 : <input type="text" name="memberName"><br>
+    런칭년도 : <input type="text" name="launchDate"><br>
+    구분코드 : <input type="text" name="divisionCode"><br>
+    과목정보 : <input type="text" name="detailInfo"><br>
+    수강생 : <input type="text" name="studentQuantity"><br>
+    연락처 : <input type="tel" name="contact"><br>
+    소속코드 : <input type="text" name="teamCode"><br>
+    활동상태 : <input type="text" name="activeStatus"><br>
     <button type="submit">강사정보 수정</button>
 </form>
 
