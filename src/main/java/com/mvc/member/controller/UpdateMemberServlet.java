@@ -28,6 +28,7 @@ public class UpdateMemberServlet extends HttpServlet {
         String activeStatus = request.getParameter("activeStatus");
 
         MemberDTO member = new MemberDTO();
+        member.setMemberCode(memberCode);
         member.setMemberName(memberName);
         member.setLaunchDate(launchDate);
         member.setDivisionCode(divisionCode);
