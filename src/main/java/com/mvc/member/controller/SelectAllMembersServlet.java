@@ -25,7 +25,7 @@ public class SelectAllMembersServlet extends HttpServlet {
 
         /* 조회 결과 성공 여부에 따른 뷰 결정 */
         String path = "";
-        if(memberList != null) {
+        if(memberList != null && !memberList.isEmpty()) {
             path = "/views/member/memberList.jsp";
             request.setAttribute("memberList", memberList);
         } else {

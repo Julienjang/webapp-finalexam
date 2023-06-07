@@ -38,10 +38,11 @@ public class UpdateMemberServlet extends HttpServlet {
         member.setTeamCode(teamCode);
         member.setActiveStatus(activeStatus);
 
-        int result = new MemberService().updateMember(member);
+        MemberService memberService = new MemberService();
+        boolean result = memberService.updateMember(member);
 
         String path = "";
-        if(result > 0) {
+        if(result) {
             path = "/views/common/successPage.jsp";
             request.setAttribute("successCode", "updateMember");
         } else {

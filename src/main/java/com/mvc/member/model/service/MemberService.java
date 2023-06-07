@@ -2,100 +2,83 @@ package com.mvc.member.model.service;
 
 import com.mvc.member.model.dao.MemberDAO;
 import com.mvc.member.model.dto.MemberDTO;
+import org.apache.ibatis.session.SqlSession;
 
-import java.sql.Connection;
 import java.util.List;
 
-import static com.mvc.common.jdbc.JDBCTemplate.*;
+import static com.mvc.common.Template.getSqlSession;
 
 public class MemberService {
 
-    private final MemberDAO memberDAO;
-
-    public MemberService() {
-        memberDAO = new MemberDAO();
-    }
+    private MemberDAO memberDAO;
 
     public MemberDTO selectOneMemberById(int memberCode) {
+        SqlSession sqlSession = getSqlSession();
 
-        /* Connection 생성 */
-        Connection con = getConnection();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+        MemberDTO selectedMember = memberDAO.selectMemberById(memberCode);
+        sqlSession.close();
 
-        /* Connection과 함께 정보를 전달하여 조회한다. */
-        MemberDTO selectedMember = memberDAO.selectMemberById(con, memberCode);
-
-        /* connection 닫기 */
-        close(con);
-
-        /* 조회 결과를 반환한다. */
         return selectedMember;
     }
 
-    /* 멤버 정보 전체 조회용 메소드 */
     public List<MemberDTO> selectAllMembers() {
+        SqlSession sqlSession = getSqlSession();
 
-        /* Connection 생성 */
-        Connection con = getConnection();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+        List<MemberDTO> memberList = memberDAO.selectAllMembers();
+        sqlSession.close();
 
-        /* 비지니스 로직 */
-        /* 1. dao 호출하여 조회 */
-        List<MemberDTO> memberList = memberDAO.selectAllMembers(con);
-
-        /* Connection 닫기 */
-        close(con);
-
-        /* 수행 결과 반환 */
         return memberList;
     }
 
-    /* 신규 멤버 등록용 메소드 */
-    public int insertMember(MemberDTO member) {
+    public boolean insertMember(MemberDTO member) {
+        SqlSession sqlSession = getSqlSession();
 
-        Connection con = getConnection();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+        boolean result = memberDAO.insertMember(member);
 
-        int result = memberDAO.insertMember(con, member);
-
-        if (result > 0) {
-            commit(con);
+        if (result) {
+            sqlSession.commit();
         } else {
-            rollback(con);
+            sqlSession.rollback();
         }
 
-        close(con);
+        sqlSession.close();
 
         return result;
     }
 
-    public int updateMember(MemberDTO member) {
+    public boolean updateMember(MemberDTO member) {
+        SqlSession sqlSession = getSqlSession();
 
-        Connection con = getConnection();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+        boolean result = memberDAO.updateMember(member);
 
-        int result = memberDAO.updateMember(con, member);
-
-        if (result > 0) {
-            commit(con);
+        if (result) {
+            sqlSession.commit();
         } else {
-            rollback(con);
+            sqlSession.rollback();
         }
 
-        close(con);
+        sqlSession.close();
 
         return result;
     }
 
-    public int deleteMember(int memberCode) {
+    public boolean deleteMember(int memberCode) {
+        SqlSession sqlSession = getSqlSession();
 
-        Connection con = getConnection();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+        boolean result = memberDAO.deleteMember(memberCode);
 
-        int result = memberDAO.deleteMember(con, memberCode);
-
-        if (result > 0) {
-            commit(con);
+        if (result) {
+            sqlSession.commit();
         } else {
-            rollback(con);
+            sqlSession.rollback();
         }
 
-        close(con);
+        sqlSession.close();
 
         return result;
     }

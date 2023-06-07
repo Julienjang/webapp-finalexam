@@ -40,10 +40,10 @@ public class InsertMemberServlet extends HttpServlet {
 
         System.out.println("insert request member : " + member);
 
-        int result = memberService.insertMember(member);
+        boolean isSuccess = memberService.insertMember(member);
 
         String path = "";
-        if (result > 0) {
+        if (isSuccess) {
             path = "/views/common/successPage.jsp";
             request.setAttribute("successCode", "insertMember");
         } else {

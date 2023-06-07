@@ -18,10 +18,11 @@ public class DeleteMemberServlet extends HttpServlet {
 
         int memberCode = Integer.parseInt(request.getParameter("memberCode"));
 
-        int result = new MemberService().deleteMember(memberCode);
+        MemberService memberService = new MemberService();
+        boolean result = memberService.deleteMember(memberCode);
 
         String path = "";
-        if(result > 0) {
+        if(result) {
             path = "/views/common/successPage.jsp";
             request.setAttribute("successCode", "deleteMember");
         } else {
