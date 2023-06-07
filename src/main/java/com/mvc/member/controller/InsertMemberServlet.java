@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/member/insert")
 public class InsertMemberServlet extends HttpServlet {
@@ -16,6 +17,9 @@ public class InsertMemberServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
 
         String memberName = request.getParameter("memberName");
         String launchDate = request.getParameter("launchDate");
@@ -42,15 +46,12 @@ public class InsertMemberServlet extends HttpServlet {
 
         boolean isSuccess = memberService.insertMember(member);
 
-        String path = "";
+        PrintWriter out = response.getWriter();
         if (isSuccess) {
-            path = "/views/common/successPage.jsp";
-            request.setAttribute("successCode", "insertMember");
+            out.print("{\"result\":\"success\",\"message\":\"insertMember\"}");
         } else {
-            path = "/views/common/errorPage.jsp";
-            request.setAttribute("message", "신규 회원 등록에 실패하셨습니다.");
+            out.print("{\"result\":\"fail\",\"message\":\"신규 회원 등록에 실패하셨습니다.\"}");
         }
-
-        request.getRequestDispatcher(path).forward(request, response);
+        out.flush();
     }
 }
