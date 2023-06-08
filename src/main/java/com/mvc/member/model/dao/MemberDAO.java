@@ -4,7 +4,7 @@ import com.mvc.member.model.dto.MemberDTO;
 import java.util.List;
 
 public interface MemberDAO {
-    MemberDTO selectMemberById(int memberId);
+    MemberDTO selectMemberById(int memberCode);
     List<MemberDTO> selectAllMembers();
     boolean insertMember(MemberDTO member);
     boolean updateMember(MemberDTO member);

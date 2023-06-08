@@ -29,7 +29,7 @@ public class SelectAllMembersServlet extends HttpServlet {
             path = "/views/member/memberList.jsp";
             request.setAttribute("memberList", memberList);
         } else {
-            path = "/WEB-INF/common/errorPage.jsp";
+            path = "/views/common/errorPage.jsp";
             request.setAttribute("message", "멤버 목록 조회 실패!");
         }
 
