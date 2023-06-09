@@ -94,46 +94,49 @@
         });
     });
 </script>
-<h3>MEMBER_INFO 테이블에서 강사 정보 수정 (강사코드와 변경할 정보를 입력 받아 강사코드와 일치하는 강사의 정보 변경 - 원하는 데이터 변경) : /member/update (post)</h3>
-<form action="${ pageContext.servletContext.contextPath }/member/update" method="post">
 
-    <div class="form-group">
-        <label for="launchDate">수정할 강사코드를 입력하세요:</label>
-        <input type="text" name="memberCode"><br>
-    </div>
-    <div class="form-group">
-        <label for="launchDate">런칭년도:</label>
-        <input type="text" class="form-control" name="launchDate" id="launchDate2" placeholder="런칭 년도 입력">
-    </div>
-    <div class="form-group">
-        <label for="divisionCode">구분코드:</label>
-        <input type="text" class="form-control" name="divisionCode" id="divisionCode2" placeholder="구분 코드 입력">
-    </div>
-    <div class="form-group">
-        <label for="detailInfo">과목정보:</label>
-        <input type="text" class="form-control" name="detailInfo" id="detailInfo2" placeholder="과목 정보 입력">
-    </div>
-    <div class="form-group">
-        <label for="studentQuantity">수강생:</label>
-        <input type="text" class="form-control" name="studentQuantity" id="studentQuantity2" placeholder="수강생 수 입력">
-    </div>
-    <div class="form-group">
-        <label for="contact">연락처:</label>
-        <input type="tel" class="form-control" name="contact" id="contact2" placeholder="연락처 입력">
-    </div>
-    <div class="form-group">
-        <label for="teamCode">소속코드:</label>
-        <input type="text" class="form-control" name="teamCode" id="teamCode2" placeholder="소속 코드 입력">
-    </div>
-    <div class="form-group">
-        <label for="activeStatus">활동상태:</label>
-        <input type="text" class="form-control" name="activeStatus" id="activeStatus2" placeholder="활동 상태 입력">
-    </div>
-    <button type="button" id="submitBtn2" class="btn btn-primary">수정하기</button>
-</form>
-</form>
+    <h3>MEMBER_INFO 테이블에서 강사 정보 수정 (강사코드와 변경할 정보를 입력 받아 강사코드와 일치하는 강사의 정보 변경 - 원하는 데이터 변경) : /member/update (post)</h3>
+    <form action="${ pageContext.servletContext.contextPath }/member/update" method="post">
+        <div class="form-group">
+            <label for="memberCodeUpdate">수정할 강사코드:</label>
+            <input type="text" class="form-control" name="memberCode" id="memberCodeUpdate" placeholder="수정할 강사 코드 입력">
+        </div>
+        <div class="form-group">
+            <label for="memberNameUpdate">강사이름:</label>
+            <input type="text" class="form-control" name="memberName" id="memberNameUpdate" placeholder="강사 이름 입력">
+        </div>
+        <div class="form-group">
+            <label for="launchDateUpdate">런칭년도:</label>
+            <input type="text" class="form-control" name="launchDate" id="launchDateUpdate" placeholder="런칭 년도 입력">
+        </div>
+        <div class="form-group">
+            <label for="divisionCodeUpdate">구분코드:</label>
+            <input type="text" class="form-control" name="divisionCode" id="divisionCodeUpdate" placeholder="구분 코드 입력">
+        </div>
+        <div class="form-group">
+            <label for="detailInfoUpdate">과목정보:</label>
+            <input type="text" class="form-control" name="detailInfo" id="detailInfoUpdate" placeholder="과목 정보 입력">
+        </div>
+        <div class="form-group">
+            <label for="studentQuantityUpdate">수강생:</label>
+            <input type="text" class="form-control" name="studentQuantity" id="studentQuantityUpdate" placeholder="수강생 수 입력">
+        </div>
+        <div class="form-group">
+            <label for="contactUpdate">연락처:</label>
+            <input type="tel" class="form-control" name="contact" id="contactUpdate" placeholder="연락처 입력">
+        </div>
+        <div class="form-group">
+            <label for="teamCodeUpdate">소속코드:</label>
+            <input type="text" class="form-control" name="teamCode" id="teamCodeUpdate" placeholder="소속 코드 입력">
+        </div>
+        <div class="form-group">
+            <label for="activeStatusUpdate">활동상태:</label>
+            <input type="text" class="form-control" name="activeStatus" id="activeStatusUpdate" placeholder="활동 상태 입력">
+        </div>
+        <button type="submit" class="btn btn-primary">강사정보 수정</button>
+    </form>
 
-<h3>MEMBER_INFO 테이블에서 강사 정보 삭제 (강사코드 입력 받아 강사코드와 일치하는 행 삭제) : /member/delete (post)</h3>
+    <h3>MEMBER_INFO 테이블에서 강사 정보 삭제 (강사코드 입력 받아 강사코드와 일치하는 행 삭제) : /member/delete (post)</h3>
 <form action="${ pageContext.servletContext.contextPath }/member/delete" method="post">
     <div class="form-group">
         <label for="memberCodeDelete">강사코드:</label>
