@@ -15,8 +15,14 @@
     </resultMap>
 
     <select id="selectMemberById" resultMap="memberResultMap">
-        SELECT * FROM MEMBER_INFO WHERE MEMBER_CODE = #{memberId}
+        SELECT * FROM MEMBER_INFO
+        <where>
+            <if test="memberCode != null">
+                MEMBER_CODE = #{memberCode}
+            </if>
+        </where>
     </select>
+
 
     <select id="selectAllMembers" resultMap="memberResultMap">
         SELECT * FROM MEMBER_INFO
